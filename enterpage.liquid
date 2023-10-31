@@ -1,0 +1,113 @@
+
+
+<div class="enterhometest">
+  <div class="testrow2">
+    <div class="testcolumn2">
+      <a class="logo-button">
+        <img srcset="{{ section.settings.logo | image_url }}" class="logo-image" />
+      </a>
+    </div>
+  </div>
+  <div class="testrow">
+    <div class="testcolumn">
+      <a data-action="url" href="{{ section.settings.enter_url }}" target="_self" class="enter-button">
+        <p class="enter-text">{{ section.settings.enter }}</p>
+      </a>
+    </div>
+  </div>
+</div>
+
+{% style %}
+
+.logo-button {  
+  display:block;
+  cursor:default!important;
+}    
+  
+.logo-button img {
+  width: {{ section.settings.desktop_logo_width }}px;
+  height:auto;
+}
+
+.enter-button {
+  text-decoration:none;
+}
+    
+.enter-text {
+  font-size: {{ section.settings.enter_size }}px;
+  color: {{ section.settings.enter_color }};
+}
+{% endstyle %}
+{% schema %}
+  {
+    "name": "P3rc Enter Page",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Logo"
+      },
+      {
+        "type": "image_picker",
+        "id": "logo",
+        "label": "Logo"
+      },
+      {
+        "type": "range",
+        "id": "desktop_logo_width",
+        "label": "Desktop logo width",
+        "default": 500,
+        "min": 80,
+        "max": 800,
+        "step": 10,
+        "unit": "px"
+      },
+      {
+        "type": "range",
+        "id": "mobile_logo_width",
+        "label": "Mobile logo width",
+        "default": 250,
+        "min": 50,
+        "max": 400,
+        "step": 10,
+        "unit": "px",
+        "info": "Set as a max-width, may appear smaller"
+      },
+      {
+        "type": "header",
+        "content": "text"
+      },
+      {
+        "type": "text",
+        "id": "enter",
+        "label": "Button Text"
+      },
+      {
+        "type": "range",
+        "id": "enter_size",
+        "label": "Button Size",
+        "default": 20,
+        "min": 10,
+        "max": 70,
+        "step": 5,
+        "unit": "px"
+      },
+      {
+        "type": "url",
+        "id": "enter_url",
+        "label": "Button URL"
+      },
+      {
+        "type": "color",
+        "id": "enter_color",
+        "label": "Button Color",
+        "default": "#FFFFFF"
+      }
+    ]
+  }
+{% endschema %}
+
+{% stylesheet %}
+{% endstylesheet %}
+
+{% javascript %}
+{% endjavascript %}
